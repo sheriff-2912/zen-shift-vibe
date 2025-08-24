@@ -1,73 +1,173 @@
-# Welcome to your Lovable project
+# ZenShift - Mood Tracking & Mindfulness App
 
-## Project info
+A production-ready React + Tailwind web application for mood logging and micro-breaks, built with Supabase backend.
 
-**URL**: https://lovable.dev/projects/ed32b0e2-6ca4-4266-ab5e-64048906bb9c
+![ZenShift](https://via.placeholder.com/800x300/4CAF50/FFFFFF?text=ZenShift)
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- **Authentication**: Sign up, login, logout, and password reset with Supabase Auth
+- **Mood Tracking**: Log your mood with optional notes and view history
+- **Personalized Suggestions**: Get mood-based recommendations for wellbeing
+- **User Profiles**: Manage username and profile information
+- **Admin Dashboard**: Admin users can view all users and mood analytics
+- **Responsive Design**: Mobile-first design with Tailwind CSS
+- **Real-time Data**: Powered by Supabase for instant updates
 
-**Use Lovable**
+## Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/ed32b0e2-6ca4-4266-ab5e-64048906bb9c) and start prompting.
+- **Frontend**: React 18, TypeScript, Tailwind CSS
+- **Backend**: Supabase (Database, Auth, Row Level Security)
+- **State Management**: React Query (TanStack Query)
+- **Routing**: React Router v6
+- **UI Components**: shadcn/ui, Lucide React
+- **Build Tool**: Vite
 
-Changes made via Lovable will be committed automatically to this repo.
+## Quick Start
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Node.js 18+
+- A Supabase project
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Setup
 
-Follow these steps:
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd zenshift
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3. **Environment Setup**
+   
+   Copy the example environment file:
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Update `.env` with your Supabase credentials:
+   ```
+   VITE_SUPABASE_URL=your_supabase_project_url
+   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+4. **Database Setup**
+   
+   Run the SQL schema in your Supabase SQL editor:
+   ```sql
+   -- See supabase/schema.sql for the complete database schema
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+5. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+   Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## Database Schema
+
+The application uses two main tables:
+
+### `profiles`
+- User profile information
+- Links to Supabase Auth users
+- Admin role management
+
+### `moods`
+- Mood check-ins with timestamps
+- Optional notes
+- User-specific with RLS policies
+
+See `supabase/schema.sql` for the complete schema.
+
+## Environment Variables
+
+Create a `.env` file with the following variables:
+
+```env
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
 
-**Edit a file directly in GitHub**
+## Features Overview
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Authentication
+- Email/password signup and login
+- Password reset functionality
+- Protected routes
+- Row Level Security (RLS) for data isolation
 
-**Use GitHub Codespaces**
+### Mood Tracking
+- Quick mood logging with predefined options
+- Optional notes for context
+- Mood history with timestamps
+- Personalized suggestions based on current mood
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### User Management
+- Profile editing (username, full name)
+- Password updates
+- Admin role assignment
 
-## What technologies are used for this project?
+### Admin Features
+- View all users
+- Access to all mood data
+- User activity analytics
+- Admin-only pages with proper authorization
 
-This project is built with:
+## Security
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Row Level Security**: Users can only access their own data
+- **Admin Policies**: Special policies for admin users
+- **Authentication Required**: All main features require login
+- **Environment Variables**: Sensitive data stored securely
 
-## How can I deploy this project?
+## Deployment
 
-Simply open [Lovable](https://lovable.dev/projects/ed32b0e2-6ca4-4266-ab5e-64048906bb9c) and click on Share -> Publish.
+The app can be deployed to any static hosting service:
 
-## Can I connect a custom domain to my Lovable project?
+1. **Build the app**
+   ```bash
+   npm run build
+   ```
 
-Yes, you can!
+2. **Deploy the `dist` folder** to your hosting service
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+3. **Configure environment variables** in your hosting platform
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Recommended Hosting Platforms
+- Vercel
+- Netlify
+- Supabase Hosting
+
+## Original Lovable Info
+
+**Project URL**: https://lovable.dev/projects/ed32b0e2-6ca4-4266-ab5e-64048906bb9c
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## License
+
+MIT License - see LICENSE file for details
+
+## Support
+
+For issues and questions:
+- Open an issue on GitHub
+- Check the Supabase documentation
+- Review the React and Tailwind CSS docs
+
+---
+
+**ZenShift** - Take control of your mental wellbeing, one mood at a time. 🧘‍♀️✨
